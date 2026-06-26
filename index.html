@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LXND × A$AP Rocky Tour Visuals — Cravin' Adventure Studios</title>
+<style>
+  :root{
+    --bg:#0a0b0e; --panel:#12141a; --panel2:#171a21;
+    --paper:#eef0f4; --muted:#8b909d; --muted2:#565c6b;
+    --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.16);
+    --green:#3dff6e; --green-dim:#1f9e46; --red:#ff5a5a;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--paper);font-family:var(--sans);line-height:1.6;
+    background-image:radial-gradient(1200px 600px at 70% -10%,rgba(61,255,110,.06),transparent 60%);}
+  .wide{max-width:1240px;margin:0 auto;padding-left:48px;padding-right:48px}
+  a{color:inherit}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;display:flex;justify-content:center;align-items:center;
+    padding:14px 28px;background:rgba(10,11,14,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav .brand{font-weight:800;letter-spacing:.5px}
+  nav .brand span{color:var(--green)}
+  nav .tag{position:absolute;right:28px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted)}
+  @media(max-width:620px){nav .tag{display:none}}
+
+  /* subnav */
+  .subnav{position:sticky;top:47px;z-index:40;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;
+    padding:10px 16px;background:rgba(10,11,14,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .subnav a{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);
+    text-decoration:none;padding:6px 12px;border-radius:30px;transition:.15s}
+  .subnav a:hover{color:var(--green);background:rgba(61,255,110,.1)}
+  section[id]{scroll-margin-top:104px}
+
+  /* type */
+  .k{font-family:var(--mono);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+  h1{font-size:clamp(38px,6vw,76px);line-height:1.02;letter-spacing:-1.5px;font-weight:800}
+  h2{font-size:clamp(26px,3.4vw,40px);line-height:1.08;letter-spacing:-.6px;font-weight:800;margin-bottom:18px}
+  h3{font-size:18px;font-weight:700;margin-bottom:8px}
+  p{color:#d4d6df;font-size:16.5px;max-width:760px}
+  p+p{margin-top:16px}
+  .lede{font-size:clamp(18px,2vw,21px);color:#c7cad4}
+  .em{color:var(--green)}
+  .sectionhead{margin-bottom:44px}
+  section{padding-top:120px;padding-bottom:120px;border-top:1px solid var(--line)}
+
+  /* hero */
+  .hero{padding-top:60px;padding-bottom:48px;border-top:none}
+  .hero h1{margin:6px 0 22px;max-width:none;white-space:nowrap}
+  .meta{font-family:var(--mono);font-size:12.5px;letter-spacing:1px;color:var(--muted);margin-top:24px;display:flex;gap:10px;flex-wrap:wrap}
+  .meta span{border:1px solid var(--line);border-radius:30px;padding:6px 12px}
+  .rec{color:var(--red)}
+
+  /* placeholder frames (HUD viewfinder) */
+  .ph{position:relative;width:100%;background:
+      repeating-linear-gradient(45deg,rgba(255,255,255,.012) 0 12px,transparent 12px 24px),var(--panel);
+    border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:26px 22px;gap:9px;overflow:hidden}
+  .ph::before{content:"";position:absolute;top:9px;left:9px;width:20px;height:20px;border-top:2px solid var(--green);border-left:2px solid var(--green);opacity:.8}
+  .ph::after{content:"";position:absolute;bottom:9px;right:9px;width:20px;height:20px;border-bottom:2px solid var(--green);border-right:2px solid var(--green);opacity:.8}
+  .ph .ico{font-size:20px;color:var(--green);opacity:.85}
+  .ph .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--green)}
+  .ph .desc{font-size:13.5px;color:#b9bdc9;max-width:92%;line-height:1.5}
+  .ph .fmt{position:absolute;top:10px;right:12px;font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--muted2)}
+  .ph.hero169{aspect-ratio:16/9}
+  .r169{aspect-ratio:16/9}
+  .r916{aspect-ratio:9/16}
+  .r11{aspect-ratio:1/1}
+  .r43{aspect-ratio:4/3}
+  .vid169,.vid916,.img169,.img916{width:100%;display:block;border:1px solid var(--green-dim);background:#000;object-fit:cover}
+  .vid169,.img169{aspect-ratio:16/9}
+  .vid916,.img916{aspect-ratio:9/16}
+  .moodgrid{column-count:3;column-gap:16px;margin-top:18px}
+  .moodgrid>*{width:100%;display:block;margin:0 0 16px;break-inside:avoid;border:1px solid var(--green-dim);background:#000}
+
+  /* layout helpers */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .stack-sm{display:grid;gap:18px}
+  .mt{margin-top:40px}
+  .narrow{max-width:300px}
+  .center{margin-left:auto;margin-right:auto}
+  .cap{font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-top:10px}
+
+  .pill{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--green);border:1px solid var(--green-dim);border-radius:30px;padding:5px 11px;margin:0 6px 8px 0}
+
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px}
+  .card h3{color:var(--green)}
+  .roles div{padding:14px 0;border-bottom:1px solid var(--line)}
+  .roles b{color:var(--paper)}
+  .roles a,.roles a b{color:var(--green);text-decoration:none}
+  .roles a:hover,.roles a:hover b{color:#7dffa6;text-decoration:underline}
+  .toolflow{font-family:var(--mono);font-size:13px;line-height:2;color:#c7cad4}
+  .stat{font-size:clamp(30px,5vw,56px);font-weight:800;letter-spacing:-1px;color:var(--green);font-family:var(--mono)}
+
+  footer{padding:50px 0 70px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;text-align:center}
+
+  @media(max-width:820px){
+    .wide{padding-left:22px;padding-right:22px}
+    .split,.grid2,.grid3,.grid4,.twocol{grid-template-columns:1fr}
+    .moodgrid{column-count:2}
+    .hero h1{white-space:normal}
+    .subnav{justify-content:flex-start;overflow-x:auto}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">CRAVIN' <span>ADVENTURE</span> STUDIOS</div>
+  <div class="tag">Client Case Study</div>
+</nav>
+<div class="subnav">
+  <a href="#start">The Start</a>
+  <a href="#warroom">War Room</a>
+  <a href="#brief">The Brief</a>
+  <a href="#build">The Build</a>
+  <a href="#logo">Logo</a>
+  <a href="#redgreen">Red → Green</a>
+  <a href="#qr">The QR code</a>
+  <a href="#delivery">Delivery</a>
+  <a href="#result">The Result</a>
+  <a href="#credits">Credits</a>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero wide">
+  <div class="k">Case Study · Stage Visuals</div>
+  <h1>LXND × A$AP Rocky Tour</h1>
+  <p class="lede">A hyper-real war-scene stage loop, brainstormed, built, and delivered in a single same-night sprint, made for LXND's full set on A$AP Rocky's Don't Be Dumb tour.</p>
+  <div class="meta">
+    <span><span class="rec">●</span> Don't Be Dumb Tour</span>
+    <span>June 25, 2026</span>
+    <span>1920 × 1080</span>
+    <span>~3.5 hour turnaround</span>
+  </div>
+  <div class="mt">
+    <video class="vid169" autoplay loop muted playsinline preload="auto"><source src="assets/final_loop_25s.mp4" type="video/mp4"></video>
+    <div class="cap">The final 25-second loop (live on-screen capture to replace once received)</div>
+  </div>
+</section>
+
+<!-- THE START -->
+<section id="start" class="wide">
+  <div class="sectionhead">
+    <div class="k">01 — How It Started</div>
+    <h2>It started with a phone call from Dylan.</h2>
+  </div>
+  <div class="split">
+    <div>
+      <p>This whole thing started with my boy Dylan Green. Dylan was a background dancer in A$AP Rocky's Governors Ball performance plus a few other shows, so he's really plugged into that world. He's the one who saw the story go up from CULT looking for people to make stage visuals who knew 3D, and he called me immediately telling me I needed to hop on it and reach out ASAP.</p>
+      <p>So I did. I DM'd CULT, told him my boy Dylan Green sent me and that I make 3D stage visuals. Dylan said I should email him too, which was a good call, so I cooked up an email and sent that over. Then I asked Dylan if he could give me more names to reach out to, and he sent me a whole list.</p>
+    </div>
+    <div class="narrow center">
+      <img class="img916" src="assets/cult_cultvega_ig_story.png" alt="CULT @cultvega IG story: need people to help make stage visuals, must know 3D"><div class="cap">The spark, @cultvega's story</div>
+    </div>
+  </div>
+  <div class="mt">
+    <div class="cap">The outreach, in my own voice</div>
+    <div class="grid4 mt">
+      <div><img class="img916" src="assets/dm_cult.png" alt="My DM to CULT citing Dylan Green, I make 3D stage visuals"><div class="cap">DM to CULT (@cultvega)</div></div>
+      <div><img class="img916" src="assets/dm_thelxnd.png" alt="My DM to thelxnd, Dylan Green pointed me your way"><div class="cap">DM to thelxnd</div></div>
+      <div><img class="img916" src="assets/dm_moji.png" alt="My DM to Moji about the Rocky tour visuals"><div class="cap">DM to Moji (same hook to Thoto + KayCyy)</div></div>
+      <div><img class="img916" src="assets/email_cultvega.png" alt="The intro email I sent to Cultvega"><div class="cap">The intro email</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WAR ROOM -->
+<section id="warroom" class="wide">
+  <div class="sectionhead">
+    <div class="k">02 — The War Room</div>
+    <h2>The creative got built in a group chat.</h2>
+  </div>
+  <p>From there the three of us, me, Dylan, and my buddy Mithran, got the "asap shit" group chat going at 5:44 PM EST that evening to brainstorm, and that's where the creative direction really got built. Fast and totally no-ego, I'd throw something out, they'd react in real time, and we kept building on each other. Dylan came in steering the vibe right away, army not SWAT, here's the feel, dropping reference boards, and he basically handed me my whole client question list: the three main images they pictured, whether they wanted AWGE incorporated, realistic or glitchy, and most importantly what songs it was for. He kept hammering that the songs were the single most important thing to nail.</p>
+  <p>Mithran came through huge. He's a big fan who's been following the tour closely, so he already knew that whole world inside out, and being a DJ he went and re-listened to the artist's discography to lock the aesthetic even tighter. He pulled together a mood board with fire references that nailed our direction fast: army not SWAT, grunge, heavy haze and smoke, glitchy strobe, a hint of CCTV, soldiers with guns but only selectively and with red lasers off them, heavy helicopter visuals using the propeller blades to transition between scenes, even chopping the music video into black and white with boxes flashing over faces.</p>
+  <div class="grid3 mt">
+    <img class="img916" src="assets/warroom_chat_01.jpg" alt="asap shit group chat with Dylan and Mithran, brainstorm">
+    <img class="img916" src="assets/warroom_chat_02.jpg" alt="asap shit group chat, references and feedback">
+    <img class="img916" src="assets/warroom_chat_03.jpg" alt="asap shit group chat, creative direction locking in">
+  </div>
+  <h3 style="margin-top:56px">Mithran's mood board</h3>
+  <p>The actual board Mithran pulled together, the references that locked the whole direction: red HUD scopes, surveillance and CCTV, black-and-white targeting, glitch, smoke. We built straight toward this.</p>
+  <div class="moodgrid mt">
+    <img src="assets/mb_swat_red_smoke.jpg" alt="SWAT squad walking through red smoke">
+    <img src="assets/mb_thermal_headshot.jpg" alt="Red thermal scope HUD, head shot">
+    <video autoplay loop muted playsinline preload="auto"><source src="assets/mb_bw_artist_stage.mp4" type="video/mp4"></video>
+    <img src="assets/mb_sniper_urban.jpg" alt="Red sniper scope HUD over a dark urban scene">
+    <video autoplay loop muted playsinline preload="auto"><source src="assets/mb_securitycam_cyberpunk.mp4" type="video/mp4"></video>
+    <img src="assets/mb_bw_face_hud.jpg" alt="Black and white face with HUD scanner overlay, god complex">
+    <img src="assets/mb_cctv_poi.jpg" alt="CCTV surveillance footage with red tracking boxes">
+    <video autoplay loop muted playsinline preload="auto"><source src="assets/mb_glitch_terminal.mp4" type="video/mp4"></video>
+    <img src="assets/mb_bw_street_tracking.jpg" alt="Black and white street with red tracking boxes, Boulevard Depo">
+    <video autoplay loop muted playsinline preload="auto"><source src="assets/mb_corridor_robotvision.mp4" type="video/mp4"></video>
+    <img src="assets/mb_thermal_aerial.jpg" alt="Black and white thermal aerial surveillance, TriCAT">
+  </div>
+  <p style="font-size:12.5px;color:var(--muted);margin-top:14px">References collected on Pinterest, full credit to the original creators. <a href="https://www.pinterest.com/cravinadventur/asap-visuals/" target="_blank" rel="noopener" style="color:var(--green)">View the full board &rarr;</a></p>
+</section>
+
+<!-- THE BRIEF -->
+<section id="brief" class="wide">
+  <div class="sectionhead">
+    <div class="k">03 — Locking The Brief</div>
+    <h2>I called the client before I touched a single file.</h2>
+  </div>
+  <p>On the outreach the one who bit was thelxnd, Anthony, within about five minutes on Instagram. And I didn't just text him back, I called him immediately, I wanted to actually talk to the guy. On the call he told me exactly what he wanted: soldiers walking toward the camera, a battlefield war-zone vibe, and to swag it out. This was for <b>LXND, an opener on the A$AP Rocky tour</b>, so it was part of the Rocky tour, but the visuals were for LXND's own set, his whole set start to finish, not Rocky's main show.</p>
+  <p>Right there on the call I came back with questions to pin it down, the environment, the colors, the tour colors, the soldiers' outfits, then followed up over text with the rest of Dylan's list. I sent the mood board to confirm direction, he locked it to a single QR code, and on the songs he told me it was for every song of his set, so I realized this wasn't about scoring one track, he wanted a specific vibe carrying the whole set. He could tell I had it locked because he was looking right at the board. Dylan reminded me to nail the screen dimensions since those stage screens are huge, so I got the spec from Anthony: <b>1920×1080, horizontal</b>.</p>
+  <div class="mt">
+    <span class="pill">War-zone soldiers</span><span class="pill">Camo / green</span><span class="pill">HUD + glitch</span><span class="pill">One QR code, every minute</span><span class="pill">Whole set</span><span class="pill">1920×1080</span>
+  </div>
+  <div class="grid2 mt" style="grid-template-columns:1fr 2fr;align-items:start">
+    <div><img class="img916" src="assets/brief_notes.jpg" alt="The text I sent Anthony, the 7 questions plus the mood board to lock the brief"><div class="cap">Locking the brief: my questions + the mood board, sent to Anthony</div></div>
+    <div><a href="assets/proposal.pdf" target="_blank" rel="noopener"><img src="assets/proposal_cover.png" alt="The proposal PDF I emailed Anthony, the foundation in writing" style="width:100%;display:block;border:1px solid var(--green-dim);background:#000"></a><div class="cap">The proposal PDF (click to open)</div></div>
+  </div>
+</section>
+
+<!-- THE BUILD -->
+<section id="build" class="wide">
+  <div class="sectionhead">
+    <div class="k">04 — Building The Soldiers</div>
+    <h2>ChatGPT couldn't do it. Midjourney could.</h2>
+  </div>
+  <p>Then it was go time on the art. I started cooking thumbnails in ChatGPT, but they weren't good enough, not realistic, with imperfections I didn't love. So I jumped to Midjourney, ran the same prompts plus variations, and got results I loved. I'd take the one I loved and bring it to life using Midjourney's video mode with written prompts, directing it to do exactly what I wanted. Midjourney was my speed play, it kicked out usable motion fast so I could throw things together quickly, even if you could tell it was AI in spots.</p>
+  <div class="grid2 mt">
+    <div><img class="img169" src="assets/build_before_chatgpt.png" alt="Early ChatGPT soldier thumbnail, not realistic enough"><div class="cap">ChatGPT (scrapped, not real enough)</div></div>
+    <div><img class="img169" src="assets/build_after_midjourney.png" alt="Midjourney wide cinematic soldier, the look that landed"><div class="cap">Midjourney (the win)</div></div>
+  </div>
+  <div class="mt"><video class="vid169" autoplay loop muted playsinline preload="auto"><source src="assets/wide_cinematic_soldiers_walking.mp4" type="video/mp4"></video><div class="cap">Midjourney video mode: the wide cinematic soldiers, the still brought to life</div></div>
+  <h3 class="mt" style="margin-top:36px">The shot list</h3>
+  <p>I couldn't just have them walking at the camera, I needed real angles.</p>
+  <div class="grid3 mt">
+    <div><video class="vid169" autoplay loop muted playsinline preload="auto"><source src="assets/TopDownAerial_SoldierSquad_AdvancingTowardCamera_RedSmoke_02.mp4" type="video/mp4"></video><div class="cap">Squad advancing toward camera (top-down)</div></div>
+    <div><video class="vid169" autoplay loop muted playsinline preload="auto"><source src="assets/GroundLevel_LoneSoldier_WalkingTowardCamera_RedExplosion_01.mp4" type="video/mp4"></video><div class="cap">Lone soldier walking toward camera into a red explosion</div></div>
+    <div><video class="vid169" autoplay loop muted playsinline preload="auto"><source src="assets/Closeup_SpecialOps_Soldier_QuadNightVisionGoggles_RedLight_01.mp4" type="video/mp4"></video><div class="cap">Black-ops face, quad night-vision goggles</div></div>
+    <div><video class="vid169" autoplay loop muted playsinline preload="auto"><source src="assets/TopDownAerial_ThreeSoldiers_AdvancingThroughRedSmoke_01.mp4" type="video/mp4"></video><div class="cap">Three soldiers through red smoke (top-down)</div></div>
+    <div><video class="vid169" autoplay loop muted playsinline preload="auto"><source src="assets/GroundLevel_Soldier_AdvancingTowardCamera_OrangeBombBlast_02.mp4" type="video/mp4"></video><div class="cap">Advancing through the bomb blast</div></div>
+    <div><video class="vid169" autoplay loop muted playsinline preload="auto"><source src="assets/Closeup_SpecialOps_Soldier_QuadNightVisionGoggles_RedLight_02.mp4" type="video/mp4"></video><div class="cap">Black-ops face, second variation</div></div>
+    <div><video class="vid169" autoplay loop muted playsinline preload="auto"><source src="assets/CloseupSideAngle_TacticalBoot_SteppingThroughRedSmoke.mp4" type="video/mp4"></video><div class="cap">Boot through the red smoke (side angle)</div></div>
+    <div><img class="img169" src="assets/shotlist_tank_tread.png" alt="Extreme close-up side angle of a heavy tank tread, red glow"><div class="cap">Tank tread, made but cut for time (saved for the next show)</div></div>
+  </div>
+</section>
+
+<!-- LOGO -->
+<section id="logo" class="wide">
+  <div class="sectionhead">
+    <div class="k">05 — The Logo Mission</div>
+    <h2>They only had a video of the logo. So I rebuilt it.</h2>
+  </div>
+  <p>The logo was its own little mission. Casper, on the media team, jumped in to help, but the guy who made the logo had only ever sent a video of it, no GLB, SVG, or PNG. The video wasn't even great quality, but I knew I could work with it, so I screenshotted a frame and used my own software to pull the logo cleanly out, converted it to a PNG, and built an SVG from it. The plan was a custom 3D version dropped into the scene with an HDRI of the real environment so it'd sit perfectly in the shot. I had everything I needed, but I ran out of time, so the logo became a next-show thing, locked and ready.</p>
+  <div class="grid3 mt">
+    <div><video autoplay loop muted playsinline preload="auto" style="width:100%;height:auto;display:block;border:1px solid var(--green-dim);background:#000"><source src="assets/logo_source.mp4" type="video/mp4"></video><div class="cap">Source: the low-quality LXND logo video they sent</div></div>
+    <div><img src="assets/logo_pulled.png" alt="LXND logo extracted and cleaned to a white PNG and SVG" style="width:100%;height:auto;display:block;border:1px solid var(--green-dim);background:#000"><div class="cap">Pulled + cleaned to a PNG / SVG</div></div>
+    <div class="ph r169"><span class="fmt">16:9</span><span class="tag">Next</span><span class="desc">Planned 3D logo asset matched with an HDRI (for the next show).</span></div>
+  </div>
+</section>
+
+<!-- RED GREEN -->
+<section id="redgreen" class="wide">
+  <div class="sectionhead">
+    <div class="k">06 — Red → Green</div>
+    <h2>Built it all in red. Flipped it green in one move.</h2>
+  </div>
+  <p>It started all red, since we were going off the main A$AP Rocky vibe and my mood board was red. <strong>Then Anthony and Casper both hit me to switch it to green</strong>, the call came from Thoto on their end, and I was already deep into building in red. My solve in After Effects was two compositions: the first was my movement and motion comp where I organized and chopped all the raw clips together, and the second was the final comp at 1920×1080, matched to the pixel map, where I dropped the first comp inside and applied a single hue rotate from red to green. Everything flipped in one move and I never had to redo a clip, I just kept building in red the whole time to match the board and flipped the switch at the end. Mithran pointed out the green actually set it apart from Rocky's red anyway.</p>
+  <div class="mt"><video class="vid169" autoplay loop muted playsinline preload="auto"><source src="assets/red_to_green_loop.mp4" type="video/mp4"></video>
+  <div class="cap">The one-move color flip: the 25s loop fading up red, then hue-rotated to green</div></div>
+  <div class="grid2 mt">
+    <div><img src="assets/ae_comp1_timeline.png" alt="After Effects comp 1, the clips clipped together in the timeline (red version)" style="width:100%;height:auto;display:block;border:1px solid var(--green-dim);background:#000"><div class="cap">Comp 1: the raw clips clipped together in the After Effects timeline</div></div>
+  </div>
+
+  <h3 style="margin-top:56px">Then I hand-treated it.</h3>
+  <p>In that same final comp I hand-treated the whole thing to sell it. I rode curves of random blur in and out at different points, ran a constant stream of monochrome grain that I kept pushing and pulling, varying the size and amount up and down so it breathed almost like CCTV footage, and gave the shots their own fades, coming up from black and falling back to black, so when the thing looped it never cut harshly, it just flowed.</p>
+  <div class="grid3 mt">
+    <div><video class="vid169" autoplay loop muted playsinline preload="auto"><source src="assets/treatment_blur.mp4" type="video/mp4"></video><div class="cap">Calculated blur curves, timed to the switches between frames and to pull a figure crawling into focus</div></div>
+    <div><video class="vid169" autoplay loop muted playsinline preload="auto"><source src="assets/treatment_grain.mp4" type="video/mp4"></video><div class="cap">Pulsing monochrome grain, size and amount breathing like CCTV footage</div></div>
+    <div><video class="vid169" autoplay loop muted playsinline preload="auto"><source src="assets/treatment_black_fade.mp4" type="video/mp4"></video><div class="cap">Black fade in / out per shot for a seamless, non-harsh loop</div></div>
+  </div>
+  <div class="mt"><img src="assets/ae_comp2_final_comp.png" alt="After Effects comp 2, the final comp with Hue/Saturation red to green, Add Grain, and Gaussian Blur stacked on" style="width:100%;height:auto;display:block;border:1px solid var(--green-dim);background:#000"><div class="cap">Comp 2: the final comp, the movement comp dropped inside with the red-to-green hue rotate plus the grain and blur treatment stacked on top</div></div>
+</section>
+
+<!-- QR code -->
+<section id="qr" class="wide">
+  <div class="sectionhead">
+    <div class="k">07 — The QR code, Built Into The World</div>
+    <h2>They said pop it on screen. I baked it into the world.</h2>
+  </div>
+  <p>The QR codes they sent were a really dark black-gray on transparent backgrounds, too dark to read clean, so I brought one into Adobe Illustrator, vectorized it, and recolored it white. Then in Photoshop I built the thumbnail, carving a space into the back vest of one of the soldiers and placing that white QR code on it, and made the in and out frames, the start and end points, and exported them. Those frames went into Wan 2.7's video editor to animate. The trick is that if you only give the AI a single endpoint, the QR code gets mangled and won't scan, so I gave Wan both an in point and an out point. Wan holds the animation's integrity way better so the code stays sharp, the tradeoff being it takes longer to cook, which is exactly why I used Midjourney for the fast stuff and saved Wan for what had to stay crisp.</p>
+  <p>On top of that they wanted the QR code up once a minute, but my loop was only 25 seconds with the QR code at the very end, so in the final comp I duplicated the loop across the full ten minutes and stripped the QR code off the end of every other pass, so it surfaced about once a minute like they asked.</p>
+  <div class="grid2 mt">
+    <div><img src="assets/qr_before_dark.png" alt="The original QR code they sent, dark gray, too dark to read on the dark scene" style="width:100%;aspect-ratio:1/1;object-fit:contain;display:block;border:1px solid var(--green-dim);background:#14161b"><div class="cap">Before: dark gray, too dark to read (would vanish on the dark scene)</div></div>
+    <div><img src="assets/qr_after_white.png" alt="QR code vectorized and recolored white in Adobe Illustrator" style="width:100%;aspect-ratio:1/1;object-fit:contain;display:block;border:1px solid var(--green-dim);background:#000;padding:18px"><div class="cap">Fixed: vectorized + recolored white in Illustrator</div></div>
+  </div>
+  <div class="grid2 mt">
+    <div><img class="img169" src="assets/qr_vest_in.png" alt="QR code built onto the soldier's back vest, the in frame"><div class="cap">Photoshop: the QR code built onto the back vest (in frame)</div></div>
+    <div><img class="img169" src="assets/qr_vest_out.png" alt="QR code on the soldier's back vest, the out frame"><div class="cap">Wan 2.7: the out frame, animated in-point to out-point to keep the QR code scannable</div></div>
+  </div>
+  <div class="mt"><video class="vid169" autoplay loop muted playsinline preload="auto"><source src="assets/Closeup_SoldierBack_WhiteQRCodeOnVest_RedBackground.mp4" type="video/mp4"></video><div class="cap">The in-world white QR code riding on the soldier's back vest</div></div>
+  <div class="mt"><img src="assets/qr_timing_diagram.png" alt="Comp 3, the final 10-minute assembly with the QR code kept on every other pass" style="width:100%;height:auto;display:block;border:1px solid var(--green-dim);background:#000"><div class="cap">Comp 3: the final 10-minute assembly, the 25-second loop duplicated with the QR code kept on every other pass (the alternating colors) so it lands about once a minute, for exactly 10 minutes</div></div>
+</section>
+
+<!-- DELIVERY -->
+<section id="delivery" class="wide">
+  <div class="sectionhead">
+    <div class="k">08 — The Handoff</div>
+    <h2>Files named, labeled, delivered. Nothing lost.</h2>
+  </div>
+  <p>Then we landed it. I talked to Anthony, exported the final loop, then made a ten-minute version since that's how long it needed to run for LXND's set. I asked them to send the Dropbox link, uploaded everything, named every file correctly and made sure they knew exactly which file was which, staying as organized as I could the whole way. Files were fully uploaded by 9:20 PM EST, so from the group chat kicking off at 5:44 PM EST to delivery, the entire thing was about a three-and-a-half-hour sprint. They loved it. Casper told me I did the damn thing.</p>
+  <p>That obsession with staying organized is exactly why I built my agents the way I did. They take my raw files, look at the clips and understand what each one is, rename them properly, sort them into a full client file system, and stand up a shared delivery folder at the end, so even on a chaotic same-night turnaround nothing got lost and the client got something clean and labeled.</p>
+  <div class="grid2 mt" style="grid-template-columns:2fr 1fr;align-items:start">
+    <div>
+      <div><img src="assets/handoff_system.png" alt="The organized ASAP_ROCKY client file system with cleanly named clips" style="width:100%;height:auto;display:block;border:1px solid var(--green-dim);background:#000"><div class="cap">The client file system, every clip cleanly named and sorted</div></div>
+      <div style="margin-top:21px"><img src="assets/handoff_dropbox.png" alt="The Dropbox folder with the final files, cleanly named" style="width:100%;height:auto;display:block;border:1px solid var(--green-dim);background:#000"><div class="cap">The Dropbox handoff, the final loop + 10-min version, cleanly named</div></div>
+    </div>
+    <div><img src="assets/handoff_proof.jpg" alt="Casper's reaction: you did the damn thing bro" style="width:100%;height:auto;display:block;border:1px solid var(--green-dim);background:#000"><div class="cap">Casper, right after "uploads completed": "you did the damn thing bro"</div></div>
+  </div>
+</section>
+
+<!-- RESULT -->
+<section id="result" class="wide">
+  <div class="sectionhead">
+    <div class="k">09 — The Result</div>
+    <h2>On stage, on the A$AP Rocky tour.</h2>
+  </div>
+  <p>The loop ran for LXND's full set. Soldiers walking toward the camera, the full After Effects treatment, the in-world QR code surfacing once a minute, all at 1920×1080, built and delivered in a single night.</p>
+  <div class="grid2 mt">
+    <div><div class="ph r169"><span class="fmt">16:9</span><span class="ico">▶</span><span class="tag">Live</span><span class="desc">On-screen / live footage of the loop running on the LXND set (horizontal).</span></div><div class="cap">Live on the stage screen</div></div>
+    <div class="narrow center"><div class="ph r916"><span class="fmt">9:16</span><span class="ico">▶</span><span class="tag">Live</span><span class="desc">Vertical capture of the visuals live at the show.</span></div><div class="cap">Vertical capture</div></div>
+  </div>
+</section>
+
+<!-- SHIPPED / NEXT -->
+<section class="wide">
+  <div class="sectionhead">
+    <div class="k">10 — Scope</div>
+    <h2>What shipped, and what's next.</h2>
+  </div>
+  <div class="twocol">
+    <div class="card">
+      <h3>Shipped for the show</h3>
+      <p>Hyper-real soldiers walking toward the camera. The full After Effects treatment, red-to-green hue rotate, random blur curves, pulsing monochrome CCTV grain, black fades between shots. A seamless 25-second loop expanded to a clean 10 minutes. The in-world white QR code baked onto a soldier's back vest, surfacing about once a minute. All at 1920×1080, for LXND's full set.</p>
+    </div>
+    <div class="card">
+      <h3>Locked for the next show</h3>
+      <p>The LXND logo as a custom 3D asset matched into the scene with a real-environment HDRI. The tanks. The helicopter and propeller-blade transitions. More clips and shot variety. Extra glitch passes. Everything that got cut for the clock is prepped and ready to build on.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CREDITS -->
+<section id="credits" class="wide">
+  <div class="sectionhead">
+    <div class="k">11 — Credits, Tools & Timeline</div>
+    <h2>Built fast, built together.</h2>
+  </div>
+  <div class="twocol">
+    <div>
+      <h3 style="color:var(--green)">Who did what</h3>
+      <div class="roles">
+        <div><a href="https://www.instagram.com/cravinadventure" target="_blank" rel="noopener"><b>Mitch</b> (@cravinadventure)</a> — me, Cravin' Adventure Studios. Directed and built the whole thing end to end: the 3D stage visuals, the outreach, and the same-night production and delivery.</div>
+        <div><a href="https://www.instagram.com/greenlightofficial__" target="_blank" rel="noopener"><b>Dylan Green</b> (@greenlightofficial__)</a> — saw the story and called me in; the connector; gave the client question list and the idea to hide the logo on the soldier; pushed me to lock the screen dimensions; references and feedback throughout.</div>
+        <div><a href="https://www.instagram.com/mithran_1" target="_blank" rel="noopener"><b>Mithran Panchamoorthy</b> (@mithran_1)</a> — a big fan following the tour, plus a DJ who re-listened to the discography to nail the aesthetic; built the key mood board; brought the helicopter, glitchy-strobe, CCTV, and selective-gun-with-laser ideas.</div>
+        <div><a href="https://www.instagram.com/thelxnd" target="_blank" rel="noopener"><b>Anthony</b> (@thelxnd)</a> — the live contact for LXND; gave the brief (soldiers toward camera, war zone, swag it out, his whole set); confirmed the single QR code, the green switch, and the 1920×1080 spec.</div>
+        <div><a href="https://www.instagram.com/caspersplayground" target="_blank" rel="noopener"><b>Casper</b> (@caspersplayground)</a> — on the media team; chased down the logo, gave feedback, coordinated the Dropbox handoff.</div>
+        <div><b>Cravin' Adventure Studios - Agent System</b> — drafted the outreach DMs, researched the tour, built the visual map and proposal PDF, and set up the whole client folder.</div>
+      </div>
+    </div>
+    <div>
+      <h3 style="color:var(--green)">Tool chain</h3>
+      <div class="toolflow">
+        ChatGPT <span style="color:var(--muted2)">(early thumbnails, scrapped)</span><br>↓<br>
+        Midjourney + video mode <span style="color:var(--muted2)">(fast stills + motion)</span><br>↓<br>
+        Adobe Illustrator <span style="color:var(--muted2)">(QR code vectorized + whitened)</span><br>↓<br>
+        Photoshop <span style="color:var(--muted2)">(QR code on vest + in/out frames, logo pull)</span><br>↓<br>
+        Wan 2.7 video editor <span style="color:var(--muted2)">(in/out points, QR code integrity)</span><br>↓<br>
+        After Effects <span style="color:var(--muted2)">(two-comp, hue rotate, grain, fades, loop + QR code timing)</span>
+      </div>
+      <div class="mt" style="margin-top:34px">
+        <div class="stat">3.5 hrs</div>
+        <p style="color:var(--muted)">"asap shit" group chat 5:44 PM EST → files uploaded 9:20 PM EST. June 25, 2026. Brainstorm to delivery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="wide">
+  Cravin' Adventure Studios · Stage Visuals · LXND × A$AP Rocky Don't Be Dumb Tour, June 2026.<br>
+  <a href="mailto:cravinadventure@gmail.com" style="color:var(--green);text-decoration:none">cravinadventure@gmail.com</a>
+</footer>
+
+<script>document.querySelectorAll('video').forEach(function(v){v.muted=true;v.play().catch(function(){});});</script>
+</body>
+</html>
