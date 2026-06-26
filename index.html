@@ -121,6 +121,14 @@
   .toolflow{font-family:var(--mono);font-size:13px;line-height:2;color:#c7cad4}
   .stat{font-size:clamp(30px,5vw,56px);font-weight:800;letter-spacing:-1px;color:var(--green);font-family:var(--mono)}
 
+  .cta2{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:920px;margin:0 auto}
+  .bigbtn{display:flex;align-items:center;justify-content:center;text-align:center;
+    font-family:var(--mono);font-weight:800;letter-spacing:2.5px;text-transform:uppercase;
+    font-size:clamp(15px,2vw,21px);color:var(--green);text-decoration:none;
+    border:1px solid var(--green-dim);border-radius:16px;padding:44px 24px;min-height:120px;
+    background:rgba(61,255,110,.04);transition:.16s}
+  .bigbtn:hover{background:var(--green);color:#04110a;border-color:var(--green);transform:translateY(-2px)}
+  @media(max-width:620px){.cta2{grid-template-columns:1fr}}
   footer{padding:50px 0 70px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px;text-align:center}
 
   @media(max-width:820px){
@@ -408,6 +416,13 @@
         <p style="color:var(--muted)">"asap shit" group chat 5:44 PM EST → files uploaded 9:20 PM EST. June 25, 2026. Brainstorm to delivery.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="wide">
+  <div class="cta2">
+    <a class="bigbtn" href="https://cravinadventure.github.io/services/">Services</a>
+    <a class="bigbtn" href="https://cravinadventure.github.io/client-case-studies/">Client Case Studies</a>
   </div>
 </section>
 
