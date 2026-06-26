@@ -151,9 +151,9 @@
   <a href="#warroom">War Room</a>
   <a href="#brief">The Brief</a>
   <a href="#build">The Build</a>
+  <a href="#qr">The QR code</a>
   <a href="#logo">Logo</a>
   <a href="#redgreen">Red → Green</a>
-  <a href="#qr">The QR code</a>
   <a href="#delivery">Delivery</a>
   <a href="#result">The Result</a>
   <a href="#credits">Credits</a>
@@ -278,10 +278,29 @@
   </div>
 </section>
 
+<section id="qr" class="wide">
+  <div class="sectionhead">
+    <div class="k">05 — The QR code, Built Into The World</div>
+    <h2>They said pop it on screen. I baked it into the world.</h2>
+  </div>
+  <p>The QR codes they sent were a really dark black-gray on transparent backgrounds, too dark to read clean, so I brought one into vector software, vectorized it, and recolored it white. Then in image-editing software I built the thumbnail, carving a space into the back vest of one of the soldiers and placing that white QR code on it, and made the in and out frames, the start and end points, and exported them. Those frames went into a more powerful AI to animate. The trick is that if you only give the AI a single endpoint, the QR code gets mangled and won't scan, so I gave it both an in point and an out point. That more powerful AI holds the animation's integrity way better so the code stays sharp, the tradeoff being it takes longer to cook, which is exactly why I used the faster AI for the quick stuff and saved the powerful one for what had to stay crisp.</p>
+  <p>On top of that they wanted the QR code up once a minute, but my loop was only 25 seconds with the QR code at the very end, so in the final comp I duplicated the loop across the full ten minutes and stripped the QR code off the end of every other pass, so it surfaced about once a minute like they asked.</p>
+  <div class="grid2 mt">
+    <div><img src="assets/qr_before_dark.png" alt="The original QR code they sent, dark gray, too dark to read on the dark scene" style="width:100%;aspect-ratio:1/1;object-fit:contain;display:block;border:1px solid var(--green-dim);background:#14161b"><div class="cap">Before: dark gray, too dark to read (would vanish on the dark scene)</div></div>
+    <div><img src="assets/qr_after_white.png" alt="QR code vectorized and recolored white in vector software" style="width:100%;aspect-ratio:1/1;object-fit:contain;display:block;border:1px solid var(--green-dim);background:#000;padding:18px"><div class="cap">Fixed: vectorized + recolored white in vector software</div></div>
+  </div>
+  <div class="grid2 mt">
+    <div><img class="img169" src="assets/qr_vest_in.png" alt="QR code built onto the soldier's back vest, the in frame"><div class="cap">Image-editing software: the QR code built onto the back vest (in frame)</div></div>
+    <div><img class="img169" src="assets/qr_vest_out.png" alt="QR code on the soldier's back vest, the out frame"><div class="cap">A more powerful AI: the out frame, animated in-point to out-point to keep the QR code scannable</div></div>
+  </div>
+  <div class="mt"><video class="vid169" autoplay loop muted playsinline preload="auto"><source src="assets/Closeup_SoldierBack_WhiteQRCodeOnVest_RedBackground_Reversed.mp4?v=2" type="video/mp4"></video><div class="cap">The in-world white QR code riding on the soldier's back vest</div></div>
+  <div class="mt"><img src="assets/qr_timing_diagram.png" alt="Comp 3, the final 10-minute assembly with the QR code kept on every other pass" style="width:100%;height:auto;display:block;border:1px solid var(--green-dim);background:#000"><div class="cap">Comp 3: the final 10-minute assembly, the 25-second loop duplicated with the QR code kept on every other pass (the alternating colors) so it lands about once a minute, for exactly 10 minutes</div></div>
+</section>
+
 <!-- LOGO -->
 <section id="logo" class="wide">
   <div class="sectionhead">
-    <div class="k">05 — The Logo Mission</div>
+    <div class="k">06 — The Logo Mission</div>
     <h2>They only had a video of the logo. So I rebuilt it.</h2>
   </div>
   <p>The logo was its own little mission. Casper, on the media team, jumped in to help, but the guy who made the logo had only ever sent a video of it, no GLB, SVG, or PNG. The video wasn't even great quality, but I knew I could work with it, so I screenshotted a frame and used my own software to pull the logo cleanly out, converted it to a PNG, and built an SVG from it. The plan was a custom 3D version dropped into the scene with real-time environment lighting so it'd sit perfectly in the shot. I had everything I needed, but I ran out of time, so the logo became a next-show thing, locked and ready.</p>
@@ -295,7 +314,7 @@
 <!-- RED GREEN -->
 <section id="redgreen" class="wide">
   <div class="sectionhead">
-    <div class="k">06 — Red → Green</div>
+    <div class="k">07 — Red → Green</div>
     <h2>Built it all in red. Flipped it green in one move.</h2>
   </div>
   <p>It started all red, since we were going off the main A$AP Rocky vibe and my mood board was red. <strong>Then Anthony and Casper both hit me to switch it to green</strong>, the call came from Thoto on their end, and I was already deep into building in red. My solve was two compositions in compositing software: the first was my movement and motion comp where I organized and chopped all the raw clips together, and the second was the final comp at 1920×1080, matched to the pixel map, where I dropped the first comp inside and applied a single hue rotate from red to green. Everything flipped in one move and I never had to redo a clip, I just kept building in red the whole time to match the board and flipped the switch at the end. Mithran pointed out the green actually set it apart from Rocky's red anyway.</p>
@@ -316,24 +335,6 @@
 </section>
 
 <!-- QR code -->
-<section id="qr" class="wide">
-  <div class="sectionhead">
-    <div class="k">07 — The QR code, Built Into The World</div>
-    <h2>They said pop it on screen. I baked it into the world.</h2>
-  </div>
-  <p>The QR codes they sent were a really dark black-gray on transparent backgrounds, too dark to read clean, so I brought one into vector software, vectorized it, and recolored it white. Then in image-editing software I built the thumbnail, carving a space into the back vest of one of the soldiers and placing that white QR code on it, and made the in and out frames, the start and end points, and exported them. Those frames went into a more powerful AI to animate. The trick is that if you only give the AI a single endpoint, the QR code gets mangled and won't scan, so I gave it both an in point and an out point. That more powerful AI holds the animation's integrity way better so the code stays sharp, the tradeoff being it takes longer to cook, which is exactly why I used the faster AI for the quick stuff and saved the powerful one for what had to stay crisp.</p>
-  <p>On top of that they wanted the QR code up once a minute, but my loop was only 25 seconds with the QR code at the very end, so in the final comp I duplicated the loop across the full ten minutes and stripped the QR code off the end of every other pass, so it surfaced about once a minute like they asked.</p>
-  <div class="grid2 mt">
-    <div><img src="assets/qr_before_dark.png" alt="The original QR code they sent, dark gray, too dark to read on the dark scene" style="width:100%;aspect-ratio:1/1;object-fit:contain;display:block;border:1px solid var(--green-dim);background:#14161b"><div class="cap">Before: dark gray, too dark to read (would vanish on the dark scene)</div></div>
-    <div><img src="assets/qr_after_white.png" alt="QR code vectorized and recolored white in vector software" style="width:100%;aspect-ratio:1/1;object-fit:contain;display:block;border:1px solid var(--green-dim);background:#000;padding:18px"><div class="cap">Fixed: vectorized + recolored white in vector software</div></div>
-  </div>
-  <div class="grid2 mt">
-    <div><img class="img169" src="assets/qr_vest_in.png" alt="QR code built onto the soldier's back vest, the in frame"><div class="cap">Image-editing software: the QR code built onto the back vest (in frame)</div></div>
-    <div><img class="img169" src="assets/qr_vest_out.png" alt="QR code on the soldier's back vest, the out frame"><div class="cap">A more powerful AI: the out frame, animated in-point to out-point to keep the QR code scannable</div></div>
-  </div>
-  <div class="mt"><video class="vid169" autoplay loop muted playsinline preload="auto"><source src="assets/Closeup_SoldierBack_WhiteQRCodeOnVest_RedBackground_Reversed.mp4?v=2" type="video/mp4"></video><div class="cap">The in-world white QR code riding on the soldier's back vest</div></div>
-  <div class="mt"><img src="assets/qr_timing_diagram.png" alt="Comp 3, the final 10-minute assembly with the QR code kept on every other pass" style="width:100%;height:auto;display:block;border:1px solid var(--green-dim);background:#000"><div class="cap">Comp 3: the final 10-minute assembly, the 25-second loop duplicated with the QR code kept on every other pass (the alternating colors) so it lands about once a minute, for exactly 10 minutes</div></div>
-</section>
 
 <!-- DELIVERY -->
 <section id="delivery" class="wide">
